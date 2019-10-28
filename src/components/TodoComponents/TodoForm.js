@@ -12,15 +12,15 @@ class TodoForm extends React.Component {
     // change handler
     handleChanges = e => {
         this.setState({
-            newItem: e.target.value
+            newTodo: e.target.value
         });
     };
 
     //submit handler
     handleSubmit = e => {
         e.preventDefault();
-        this.props.addTodo(this.state.newTodo)
-        this.setState({ newItem: "" });
+        this.props.addTodo(this.state.newTodo);
+        this.setState({ newTodo: "" });
     };
 
     render() {
@@ -37,7 +37,7 @@ class TodoForm extends React.Component {
                 />
                 <button>Add Todo</button>
             </form>
-        )
+        );
     }
 }
 

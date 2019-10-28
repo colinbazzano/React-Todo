@@ -1,7 +1,8 @@
 import React from 'react';
 
 // local imports below
-
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 // rendering initial data as a guideline for the todo app
 const data = [
@@ -41,10 +42,31 @@ class App extends React.Component {
   };
 
   // toggle completed todos
+  toggleCompleted = id => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        } else {
+          return todo;
+        }
+      })
+    });
+  };
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="App">
+        <div className="header">
+          <h2>Welcome to your Todo App!</h2>
+          <TodoForm addTodo={this.addTodo} />
+        </div>
+        <TodoList 
+        toggleCompleted={this.toggleCompleted} 
+        todos={this.state.todos}
+        />
       </div>
     );
   }
