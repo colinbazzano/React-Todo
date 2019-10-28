@@ -3,6 +3,7 @@ import React from 'react';
 // local imports below
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+import "./components/TodoComponents/Todo.css";
 
 // rendering initial data as a guideline for the todo app
 const data = [
@@ -56,6 +57,12 @@ class App extends React.Component {
       })
     });
   };
+
+  handleClear = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.completed === false)
+    });
+  };
   render() {
     return (
       <div className="App">
@@ -65,8 +72,10 @@ class App extends React.Component {
         </div>
         <TodoList 
         toggleCompleted={this.toggleCompleted} 
+        handleClear={this.handleClear}
         todos={this.state.todos}
         />
+        <button onClick={this.handleClear}>Clear Completed</button>
       </div>
     );
   }
