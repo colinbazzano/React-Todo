@@ -3,11 +3,40 @@ import React from 'react';
 class TodoForm extends React.Component {
     constructor() {
         super();
+        // this of this.state as const [newTodo, setNewTodo] = useState('');
+        this.state = {
+            newTodo: "",
+        };
+    } // end of constructor
 
-    }
+    // change handler
+    handleChanges = e => {
+        this.setState({
+            newItem: e.target.value
+        });
+    };
+
+    //submit handler
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.addTodo(this.state.newTodo)
+        this.setState({ newItem: "" });
+    };
+
     render() {
+        console.log('rendering the form')
         return (
-            <div></div>
+            <form onSubmit={this.handleSubmit}>
+                <label htmlFor="todo">New Todo</label>
+                <input
+                type="text"
+                name="todo"
+                id="todo"
+                value={this.state.newTodo}
+                onChange={this.handleChanges}
+                />
+                <button>Add Todo</button>
+            </form>
         )
     }
 }
