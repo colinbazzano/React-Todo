@@ -1,0 +1,59 @@
+body {
+    background-color: black;
+}
+.App {
+    border-radius: .5rem;
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+}
+.todo-list {
+    width: 30%;
+    margin: 1% auto;
+    font-size: 1.4rem;
+}
+.todo {
+    margin: 1% auto;
+    padding: 1px;
+    border: 1px solid black;
+}
+
+.todo.completed {
+    background-color: black;
+    color: white;
+    text-decoration: line-through;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+input#todo {
+    width: 30%;
+    height: auto;
+    font-size: 1.4rem;
+    margin: 1% auto;
+}
+h3 {
+    font-size: 1.5rem;
+    width: 20%;
+    margin: 1% auto;
+}
+.add-todo-btn {
+    margin: 1% auto;
+    width: 20%;
+    background-color: black;
+    font-size: 1.4rem;
+    border-radius: .6rem;
+    color: white;
+}
+.clear-btn {
+    width: 20%;
+    background-color: white; 
+    font-size: 1.4rem;
+    color: black;
+    border-radius: .6rem;
+    margin: 1% auto;
+}
